@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiRefreshCw } from 'react-icons/fi';
-import { getJotcRequests } from '../services/api';
-import { JotcRequest } from '../types/types';
+import { getJotcRequests } from '../../services/api';
+import { JotcRequest } from '../../types/types';
 
 const AdminDashboard: React.FC = () => {
   const [requests, setRequests]               = useState<JotcRequest[]>([]);

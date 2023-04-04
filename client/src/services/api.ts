@@ -35,8 +35,8 @@ export const authenticate = async (email: string, password: string) => {
         return { result: false, errors: [response.data.message] };
       }
     } catch (error: any) {
-      if (error.response && error.response.data && error.response.data.errors) {
-        return { result: false, errors: error.response.data.errors };
+      if (error.response && error.response.data && error.response.data.message) {
+        return { result: false, errors: error.response.data.message };
       } else {
         return { result: false, errors: ['An error occurred. Please try again.'] };
       }

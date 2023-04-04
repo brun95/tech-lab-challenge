@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './Components/Header';
-import ParticipationForm from './Components/ParticipationForm';
-import AdminDashboard from './Components/AdminDashboard';
-import Login from './Components/Login';
-import Game from './Components/Game';
+import Header from './Components/layout/Header';
+import ParticipationForm from './Components/authentication/ParticipationForm';
+import AdminDashboard from './Components/admin/AdminDashboard';
+import Login from './Components/authentication/Login';
+import Game from './Components/game/Game';
 import { isValidToken } from './services/api';
-import NotFoundPage from './Components/NotFoundPage';
-import Footer from './Components/Footer';
+import NotFoundPage from './Components/404/NotFoundPage';
+import Footer from './Components/layout/Footer';
 
 const App = () => {
   let authenticated = localStorage.getItem("authenticated");

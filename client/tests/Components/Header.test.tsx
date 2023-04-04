@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import 'jest-environment-jsdom';
 import { render, screen } from '@testing-library/react';
-import Header from '../../src/Components/Header';
+import Header from '../../src/Components/layout/Header';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Header', () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ErrorMsgs from './common/ErrorMsgs';
-import { authenticate } from '../services/api';
+import ErrorMsgs from '../common/ErrorMsgs';
+import { authenticate } from '../../services/api';
 
 const Login = () => {
   const [email, setEmail]       = useState('');

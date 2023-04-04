@@ -16,8 +16,7 @@ export async function authenticateHandler(req: Request, res: Response) {
 
   const user = await authenticate(email, password);
   if (!user) {
-    res.status(401).json({ message: ['Invalid email or password'] });
-    return;
+    return res.status(401).json({ message: ['Invalid email or password'] });
   }
 
   // Create a JWT token and send it back to the client

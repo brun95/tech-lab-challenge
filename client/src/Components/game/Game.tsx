@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate , useLocation } from 'react-router-dom';
-import { submitJotcRequest } from '../services/api';
-import ErrorMsgs from './common/ErrorMsgs';
+import { submitJotcRequest } from '../../services/api';
+import ErrorMsgs from '../common/ErrorMsgs';
 
 const Game: React.FC = () => {
   const [numbers, setNumbers] = useState<number[]>([]);

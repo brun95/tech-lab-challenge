@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import ParticipationForm from '../../src/Components/ParticipationForm';
+import ParticipationForm from '../../src/Components/authentication/ParticipationForm';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 

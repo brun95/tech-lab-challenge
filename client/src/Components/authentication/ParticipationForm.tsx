@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ErrorMsgs from './common/ErrorMsgs';
-import { validateParticipation } from '../services/api';
+import ErrorMsgs from '../common/ErrorMsgs';
+import { validateParticipation } from '../../services/api';
 
 const ParticipationForm = () => {
   const [email, setEmail]             = useState('');
