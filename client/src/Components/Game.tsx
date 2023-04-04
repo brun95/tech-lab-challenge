@@ -79,21 +79,30 @@ const Game: React.FC = () => {
         }
       </div>
 
-      <div className="flex justify-center mt-12">
-        {numbers.map((number, index) => (
-          <div key={index} className="rounded-full w-12 h-12 flex items-center justify-center mr-2 relative">
-            {number === 0 && !idxPath?.includes(index) && <div className="absolute bg-green-400 rounded-full w-10 h-10 flex items-center justify-center">{number}</div>}
-            {number === 1 && <div className="absolute bg-red-400 rounded-full w-10 h-10 flex items-center justify-center">{number}</div>}
-            {idxPath?.includes(index) && (
-              <div className="absolute bg-blue-400 rounded-full w-12 h-12 flex items-center justify-center">
-                <div className="bg-green-400 rounded-full w-8 h-8 flex items-center justify-center">
-                  {number}
-                </div>
-              </div>
-            )}
+      <div className="flex justify-center flex-wrap mt-12">
+  {numbers.map((number, index) => (
+    <div key={index} className="rounded-full w-12 h-12 flex items-center justify-center mr-2 relative mb-2">
+      {number === 0 && !idxPath?.includes(index) && (
+        <div className="absolute bg-green-400 rounded-full w-10 h-10 flex items-center justify-center">
+          {number}
+        </div>
+      )}
+      {number === 1 && (
+        <div className="absolute bg-red-400 rounded-full w-10 h-10 flex items-center justify-center">
+          {number}
+        </div>
+      )}
+      {idxPath?.includes(index) && (
+        <div className="absolute bg-blue-400 rounded-full w-12 h-12 flex items-center justify-center">
+          <div className="bg-green-400 rounded-full w-8 h-8 flex items-center justify-center">
+            {number}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
       
       {result && <div className="text-2xl font-bold mt-12">Result: {result}</div>}
     </div>

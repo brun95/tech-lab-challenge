@@ -16,7 +16,7 @@ const Header: React.FC = () => {
     <header className="flex justify-between items-center bg-gray-800 text-white p-4">
       <Link to="/" className="flex items-center">
         <FaCloud className="text-xl mr-2" />
-        <h1 className="text-xl font-bold">Jumping on the Clouds</h1>
+        <h1 className="hidden md:block text-xl font-bold">Jumping on the Clouds</h1>
       </Link>
       <nav>
         {links.map((link) => (

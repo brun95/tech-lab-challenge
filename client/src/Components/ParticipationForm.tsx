@@ -21,7 +21,6 @@ const ParticipationForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { result, errors } = await validateParticipation(firstName, lastName, email, dateOfBirth);
-    console.log(' olaaaaaaaaaaaaaaaa ', result)
     if (result) {
       setIsSignedUp(true);
     } else {
@@ -31,25 +30,27 @@ const ParticipationForm = () => {
 
   return (
     <>
-     <form className="flex flex-col gap-4 form-container mt-8" onSubmit={handleSubmit} data-testid="participation-form">
-        <h1 className="text-4xl font-bold mb-4 mt-8">Participation Form</h1>
-        
-        <label htmlFor="email" className="text-lg font-medium">Email:</label>
-        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="border rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+     <form className="w-96 mx-auto mt-8" onSubmit={handleSubmit} data-testid="participation-form">
+      <h1 className="text-4xl font-bold mb-4">Participation Form</h1>
+            
+      <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">Email:</label>
+      <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full px-3 py-2 mb-4 text-gray-700 border rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-500" />
 
-        <label htmlFor="firstName" className="text-lg font-medium">First Name:</label>
-        <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} required className="border rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      <label htmlFor="firstName" className="block text-lg font-medium text-gray-700 mb-2">First Name:</label>
+      <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} required className="w-full px-3 py-2 mb-4 text-gray-700 border rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-500" />
 
-        <label htmlFor="lastName" className="text-lg font-medium">Last Name:</label>
-        <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} required className="border rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      <label htmlFor="lastName" className="block text-lg font-medium text-gray-700 mb-2">Last Name:</label>
+      <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} required className="w-full px-3 py-2 mb-4 text-gray-700 border rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-500" />
 
-        <label htmlFor="dateOfBirth" className="text-lg font-medium">Date of Birth:</label>
-        <input type="date" id="dateOfBirth" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} required className="border rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      <label htmlFor="dateOfBirth" className="block text-lg font-medium text-gray-700 mb-2">Date of Birth:</label>
+      <input type="date" id="dateOfBirth" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} required className="w-full px-3 py-2 mb-4 text-gray-700 border rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-500" />
 
-        {errors.length > 0 && <ErrorMsgs errors={errors} />}
+      {errors.length > 0 && <ErrorMsgs errors={errors} />}
 
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition-colors">Play</button>
-      </form>
+      <button type="submit" className="block w-full px-4 py-2 text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Play</button>
+    </form>
+
+
     </>
   );
 };

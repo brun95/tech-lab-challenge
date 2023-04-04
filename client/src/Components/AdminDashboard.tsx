@@ -54,10 +54,11 @@ const AdminDashboard: React.FC = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">JOTC Requests</h1>
-      <div className="flex flex-col sm:flex-row items-center justify-between mb-4">
-        <div className="mb-4 sm:mb-0">
+    <div className="container mx-auto px-4 mt-8">
+      <h1 className="text-4xl font-bold mb-8">Requests Dashboard</h1>
+      
+      <div className="flex flex-col md:flex-row items-center justify-between mb-4">
+        <div className="flex items-center mb-4 sm:mb-0">
           <label htmlFor="emailFilter" className="text-lg font-medium mr-2">
             Email:
           </label>
@@ -90,6 +91,8 @@ const AdminDashboard: React.FC = () => {
             value={endDateFilter}
             onChange={handleEndDateFilterChange}
           />
+        </div>
+        <div className='flex flex-row items-center justify-between mb-4'>
           <button
             className="bg-blue-500 text-white rounded-md py-1 px-2 ml-4 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
             onClick={handleClearFilters}
@@ -106,23 +109,23 @@ const AdminDashboard: React.FC = () => {
       <table className="table-auto w-full">
         <thead>
           <tr>
-            <th className="px-4 py-2">Email</th>
-            <th className="px-4 py-2">Input</th>
-            <th className="px-4 py-2">Result</th>
-            <th className="px-4 py-2">Date Played</th>
+            <th className="text-sm md:text-base px-4 py-2">Email</th>
+            <th className="text-sm md:text-base px-4 py-2">Input</th>
+            <th className="text-sm md:text-base px-4 py-2">Result</th>
+            <th className="text-sm md:text-base px-4 py-2">Date Played</th>
           </tr>
         </thead>
         <tbody>
           {filteredRequests.map(request => (
             <tr key={request.id}>
-              <td className="border px-4 py-2">{request.email}</td>
-              <td className="border px-4 py-2">{request.jotc_input}</td>
-              <td className="border px-4 py-2">{request.jotc_result}</td>
-              <td className="border px-4 py-2">{new Date(request.created_at).toLocaleDateString()}</td>
+              <td className="border px-4 py-2 text-sm md:text-base">{request.email}</td>
+              <td className="border px-4 py-2 text-sm md:text-base" style={{ wordBreak: 'break-all' }}>{request.jotc_input}</td>
+              <td className="border px-4 py-2 text-sm md:text-base">{request.jotc_result}</td>
+              <td className="border px-4 py-2 text-sm md:text-base">{new Date(request.created_at).toLocaleDateString()}</td>
             </tr>
             ))}
-          </tbody>
-        </table>
+        </tbody>
+      </table>
     </div>
     );
 }
