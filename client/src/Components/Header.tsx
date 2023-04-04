@@ -9,6 +9,7 @@ const Header: React.FC = () => {
     const isLoggedIn = localStorage.getItem('access_token');
     const handleLogout = () => {
       localStorage.removeItem('access_token');
+      localStorage.removeItem('authenticated');
       window.location.href = '/login';
     }
 

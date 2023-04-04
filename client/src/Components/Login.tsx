@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ErrorMsgs from './common/ErrorMsgs';
 import { authenticate } from '../services/api';
-import { MyComponentProps } from '../types/types';
 
-const Login = ({ setAuthenticated}: MyComponentProps) => {
+const Login = () => {
   const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors]     = useState<string[]>([]);
-  const navigate = useNavigate();
 
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
@@ -16,12 +13,14 @@ const Login = ({ setAuthenticated}: MyComponentProps) => {
     try {
       const { result, errors } = await authenticate(email, password);
       if (result) {
-        setAuthenticated(true);
-        navigate('/../dashboard');
+        localStorage.setItem('authenticated', "true");
+        window.location.href = '/../dashboard';
       } else {
+        localStorage.removeItem('authenticated');
         setErrors(errors);
       }
     } catch (error: any) {
+      localStorage.removeItem('authenticated');
       if (error.response && error.response.data && error.response.data.message) {
         setErrors(error.response.data.message);
       } else {

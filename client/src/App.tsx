@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useState } from "react"
 import Header from './Components/Header';
 import ParticipationForm from './Components/ParticipationForm';
 import AdminDashboard from './Components/AdminDashboard';
@@ -10,7 +9,8 @@ import NotFoundPage from './Components/NotFoundPage';
 import Footer from './Components/Footer';
 
 const App = () => {
-  const [authenticated, setAuthenticated] = useState(false)
+  let authenticated = localStorage.getItem("authenticated");
+  let acessToken = localStorage.getItem("access_token");
 
   return (
     <>
@@ -19,11 +19,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={<ParticipationForm />} />
           <Route path="/game" element={<Game />} />
-          <Route path="/login" element={<Login setAuthenticated={setAuthenticated}/>} />
+          <Route path="/login" element={<Login/>} />
           <Route
             path="/dashboard"
             element={
-              authenticated && localStorage.getItem("access_token") && isValidToken(localStorage.getItem("access_token")) ? (
+              authenticated &&
+              authenticated === "true" &&
+              acessToken &&
+              isValidToken(acessToken) ? (
                 <AdminDashboard />
               ) : (
                 <Navigate to="/login" replace />
